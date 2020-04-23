@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block content %}
+		<main class="content">
+			<div class="single">
+
+				<section class="trailer">
+					<h3>Trailer</h3>
+					<div class="trailer_frame">
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/x73-573aWfs" frameborder="0" allowfullscreen></iframe>
+					</div>
+				</section>
+
+				<section class="movie">
+					<img src="{{object.image.url}}">
+					<ul>
+						<li>{{object}}</li>
+						<li>{{object.description}}</li>
+						<li><a href="genre.html">Adventure</a>, <a href="genre.html">Drama</a>, <a href="genre.html">Romance</a></li>
+						<li><a href="cast.html">Gary Oldman</a>, <a href="cast.html">Asa Butterfield</a></li>
+						<li>{{object.views_count}} Views</li>
+					</ul>
+				</section>
+				<section class="links">
+					<h3>Links</h3>
+					<ul class="dlinks">
+						<li><a>Download</a></li>
+						<li><a href="#">Link1</a></li>
+						<li><a href="#">Link2</a></li>
+						<li><a href="#">Link3</a></li>
+					</ul>
+					<ul class="wlinks">
+						<li><a>Watch</a></li>
+						<li><a href="#">Link1</a></li>
+						<li><a href="#">Link2</a></li>
+						<li><a href="#">Link3</a></li>
+					</ul>
+				</section>
+
+				<section class="related">
+					<h3>Related movies</h3>
+					<div class="relatemovie">
+						<a href="#"><img src="images/2.jpg"></a>
+						<a href="#"><span class="relatedname">John Wick</span></a>
+					</div>
+					<div class="relatemovie">
+						<a href="#"><img src="images/3.jpg"></a>
+						<a href="#"><span class="relatedname">Spider Man Homecoming</span></a>
+					</div>
+					<div class="relatemovie">
+						<a href="#"><img src="images/4.jpg"></a>
+						<a href="#"><span class="relatedname">Beauty and Beast</span></a>
+					</div>
+					<div class="relatemovie">
+						<a href="#"><img src="images/5.jpg"></a>
+						<a href="#"><span class="relatedname">Pirates of the Caribbean: Dead Men Tell No Tales</span></a>
+					</div>
+					<div class="relatemovie">
+						<a href="#"><img src="images/6.jpg"></a>
+						<a href="#"><span class="relatedname">Fifty Shades Darker</span></a>
+					</div>
+					<div class="relatemovie">
+						<a href="#"><img src="images/7.jpg"></a>
+						<a href="#"><span class="relatedname">Transformers</span></a>
+					</div>
+
+				</section>
+
+				
+			</div>
+		</main>
+{% endblock %}
+
