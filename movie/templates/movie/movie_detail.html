@@ -16,7 +16,7 @@
 						<li>{{object}}</li>
 						<li>{{object.description}}</li>
 						<li><a href="genre.html">Adventure</a>, <a href="genre.html">Drama</a>, <a href="genre.html">Romance</a></li>
-						<li><a href="cast.html">Gary Oldman</a>, <a href="cast.html">Asa Butterfield</a></li>
+						<li><a href="">{{object.cast}}</a></li>
 						<li>{{object.views_count}} Views</li>
 					</ul>
 				</section>
@@ -24,15 +24,24 @@
 					<h3>Links</h3>
 					<ul class="dlinks">
 						<li><a>Download</a></li>
-						<li><a href="#">Link1</a></li>
-						<li><a href="#">Link2</a></li>
-						<li><a href="#">Link3</a></li>
+						{% for link in links %}
+						 {% if link.type == 'D'%}
+						<li><a href="{{link.link}}">Link{{forloop.counter}}</a></li>
+						{% endif %}
+						{% endfor %}
+						
+						
+						
 					</ul>
 					<ul class="wlinks">
 						<li><a>Watch</a></li>
-						<li><a href="#">Link1</a></li>
-						<li><a href="#">Link2</a></li>
-						<li><a href="#">Link3</a></li>
+						{% for link in links %}
+						 {% if link.type == 'W'%}
+						<li><a href="{{link.link}}">Link{{forloop.counter}}</a></li>
+						{% endif %}
+						{% endfor %}
+						
+						
 					</ul>
 				</section>
 
