@@ -2,7 +2,9 @@
 {% block content %}	
 		<main class="content">
 			<section class="centered">
-				
+				{% if movie_category %}
+				<h3>{{movie_category|title}} Movies</h3>
+				{% endif %}
 				<div class="movies">
 					{% for movie in object_list %}
 					<div class="mov">

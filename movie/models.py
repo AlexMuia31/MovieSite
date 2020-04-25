@@ -2,10 +2,10 @@ from django.db import models
 
 
 CATEGORY_CHOICES=(
-    ('A','Action'),
-    ('D','Drama'),
-    ('C','Comedy'),
-    ('R','Romance')
+    ('action','Action'),
+    ('drama','Drama'),
+    ('comedy','Comedy'),
+    ('romance','Romance')
 )
 
 LANGUAGE_CHOICES=(
@@ -25,7 +25,7 @@ class Movie(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(max_length=1000)
     image = models.ImageField(upload_to='movies')
-    category = models.CharField(choices=CATEGORY_CHOICES, max_length=1)
+    category = models.CharField(choices=CATEGORY_CHOICES, max_length=10)
     language = models.CharField(choices=LANGUAGE_CHOICES, max_length=2)
     cast= models.CharField(max_length=100)
     status= models.CharField(choices=STATUS_CHOICES, max_length=2)
@@ -48,6 +48,7 @@ class MovieLinks(models.Model):
 
     def __str__(self):
         return str(self.movie)
+
 
 
 
