@@ -5,6 +5,11 @@
 				{% if movie_category %}
 				<h3>{{movie_category|title}} Movies</h3>
 				{% endif %}
+
+				{% if movie_language %}
+				<h3>{{movie_language|title}} Movies</h3>
+				{% endif %}
+
 				<div class="movies">
 					{% for movie in object_list %}
 					<div class="mov">
@@ -13,6 +18,8 @@
 							<h2 class="movietitle">{{movie.title}}</h2>
 						</a>
 					</div>
+					{% empty %}
+					<h3>There are no Movies in this Category</h3>
 					{% endfor %}
 				</div>
 				{% if is_paginated %}

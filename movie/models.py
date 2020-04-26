@@ -9,10 +9,10 @@ CATEGORY_CHOICES=(
 )
 
 LANGUAGE_CHOICES=(
-    ('En','English'),
-    ('Gr','German'),
-    ('Ki','Swahili'),
-    ('Sp','Spanish')
+    ('english','English'),
+    ('german','German'),
+    ('swahili','Swahili'),
+    ('spanish','Spanish')
 )
 
 STATUS_CHOICES=(
@@ -26,7 +26,7 @@ class Movie(models.Model):
     description = models.TextField(max_length=1000)
     image = models.ImageField(upload_to='movies')
     category = models.CharField(choices=CATEGORY_CHOICES, max_length=10)
-    language = models.CharField(choices=LANGUAGE_CHOICES, max_length=2)
+    language = models.CharField(choices=LANGUAGE_CHOICES, max_length=20)
     cast= models.CharField(max_length=100)
     status= models.CharField(choices=STATUS_CHOICES, max_length=2)
     year_of_production= models.DateField()
