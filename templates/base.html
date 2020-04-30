@@ -39,10 +39,10 @@
 					</li>
 					<li><a>Year</a>
 						<ul>
-							<li><a href="year.html">2017</a></li>
-							<li><a href="year.html">2016</a></li>
-							<li><a href="year.html">2015</a></li>
-							<li><a href="year.html">2014</a></li>
+							<li><a href="{% url 'movies:movie_year' year=2020%}">2020</a></li>
+							<li><a href="{% url 'movies:movie_year' year=2019%}">2019</a></li>
+							<li><a href="{% url 'movies:movie_year' year=2018%}">2018</a></li>
+							<li><a href="{% url 'movies:movie_year' year=2017%}">2017</a></li>
 						</ul>
 					</li>
 					<li><a>Language</a>
@@ -61,8 +61,8 @@
 					</li>
 				</ul>
 			</nav>
-			<form class="search">
-				<input type="text" name="s" class="searchfield" placeholder="Search...">
+			<form class="search" method="GET" action="{% url 'movies:movie_search' %}">
+				<input type="text" name="query" value="{{request.GET.q}}"class="searchfield" placeholder="Search...">
 				<input type="submit" value="" class="searchsubmit">
 			</form>
 

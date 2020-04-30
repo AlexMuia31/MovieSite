@@ -13,7 +13,7 @@
 				<div class="movies">
 					{% for movie in object_list %}
 					<div class="mov">
-						<a href="">
+						<a href="{% url 'movies:movie_detail' movie.slug %}">
 							<img src="{{movie.image.url}}">
 							<h2 class="movietitle">{{movie.title}}</h2>
 						</a>
