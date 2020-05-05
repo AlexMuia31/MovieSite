@@ -26,6 +26,8 @@ class MovieDetail(DetailView):
     def get_context_data(self, **kwargs):
         context= super(MovieDetail, self).get_context_data(**kwargs)
         context['links']= MovieLinks.objects.filter(movie=self.get_object())
+        context['related_movies']= Movie.objects.filter(category=self.get_object().category)#.order_by['created'][0:6]
+
         return context
     
 class MovieCategory(ListView):
@@ -75,4 +77,16 @@ class MovieYear(YearArchiveView):
     date_field='year_of_production'
     make_object_list= True
     allow_future= True
+
+
+class HomeView(ListView):
+    model= Movie
+    template_name= 'home.html'
+
+    def get_context_data(self, **kwargs):
+        context= super(HomeView,self).get_context_data(**kwargs)
+        context['top_rated']=Movie.objects.filter(category='TR')
+        context['most_watched']=Movie.objects.filter(category='MW')
+        context['recently_added']=Movie.objects.filter(category='RA')
+        return context
         

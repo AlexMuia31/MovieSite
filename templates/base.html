@@ -28,7 +28,7 @@
 			<figure class="logo"><a href="/"><img src="{% static 'img/logo.png' %}" alt="Logo"></figure></a>
 			<nav class="menu">
 				<ul>
-					<li><a href="index.html">Home</a></li>
+					<li><a href="{% url 'movies:home'%}">Home</a></li>
 					<li><a>Genres</a>
 						<ul>
 							<li><a href="{% url 'movies:movie_category' 'action'%}">Action</a></li>
@@ -73,36 +73,21 @@
 			<div class="swiper-container">
 
 				<div class="swiper-wrapper">
+
 					<div class="swiper-slide">
-						<img src="images/slider/poster2.jpg">
+						{% if slider_movie.banner %}
+						<img src="{{slider_movie.banner.url}}">
+						{% endif %}
 						<div class="caption">
 							<div class="captioninside">
-								<h3>Movie Title</h3>
-								<p>Lorem ipsum dolor siamet</p>
-								<a href="single.html" class="playbutton">Play</a>
+								<h3>{{slider_movie.title}}</h3>
+								<p>{{slider_movie.description}}</p>
+								<a href="{% url 'movies:movie_detail' slider_movie.slug %}" class="playbutton">Play</a>
 							</div>
 						</div>
 					</div>
-					<div class="swiper-slide">
-						<img src="images/slider/poster1.jpg">
-						<div class="caption">
-							<div class="captioninside">
-								<h3>Movie Title 2</h3>
-								<p>Lorem ipsum dolor siamet</p>
-								<a href="single.html" class="playbutton">Play</a>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide">
-						<img src="images/slider/poster2.jpg">
-						<div class="caption">
-							<div class="captioninside">
-								<h3>Movie Title 3</h3>
-								<p>Lorem ipsum dolor siamet</p>
-								<a href="single.html" class="playbutton">Play</a>
-							</div>
-						</div>
-					</div>
+					
+				
 				</div>
 				<!-- Add Pagination -->
 				<div class="swiper-pagination"></div>

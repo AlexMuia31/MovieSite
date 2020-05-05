@@ -1,5 +1,6 @@
 from django.db import models
 from django.template.defaultfilters import slugify
+from django.utils import timezone
 
 
 CATEGORY_CHOICES=(
@@ -26,6 +27,7 @@ class Movie(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(max_length=1000)
     image = models.ImageField(upload_to='movies')
+    banner = models.ImageField(upload_to='movies_banner')
     category = models.CharField(choices=CATEGORY_CHOICES, max_length=10)
     language = models.CharField(choices=LANGUAGE_CHOICES, max_length=20)
     cast= models.CharField(max_length=100)
@@ -33,6 +35,7 @@ class Movie(models.Model):
     year_of_production= models.DateField()
     views_count= models.IntegerField(default=0)
     movie_trailer= models.URLField()
+    created= models.DateTimeField(default=timezone.now)
 
     slug= models.SlugField(null=True, blank=True)
 
