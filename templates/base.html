@@ -28,7 +28,7 @@
 			<figure class="logo"><a href="/"><img src="{% static 'img/logo.png' %}" alt="Logo"></figure></a>
 			<nav class="menu">
 				<ul>
-					<li><a href="{% url 'movies:home'%}">Home</a></li>
+					<li><a href="/">Home</a></li>
 					<li><a>Genres</a>
 						<ul>
 							<li><a href="{% url 'movies:movie_category' 'action'%}">Action</a></li>
@@ -122,7 +122,7 @@
 		</footer>
 
 		<!-- Swiper JS -->
-		<script src="js/swiper.min.js"></script>
+		<script src="{% static 'js/swiper.min.js' %}"></script>
 
 		<!-- Initialize Swiper -->
 		<script>
